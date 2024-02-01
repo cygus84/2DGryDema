@@ -17,6 +17,7 @@ import app.Start;
 import app.ai.PathFinder;
 import app.entity.Entity;
 import app.entity.Player;
+import app.environment.EnvironmentManager;
 import app.monster.MON_GreenSlime;
 import app.narzedzia.AssetSetter;
 import app.narzedzia.CollisionChecker;
@@ -58,6 +59,8 @@ public class GamePanel extends JPanel implements Runnable {
 	
 	// FPS
 	private int FPS = 60;
+	
+	// SYSTEM
 	// menager plytek 
 	public TileManager tileM =  new TileManager(this);
 	// wlasny sluchacz sterowania
@@ -77,8 +80,12 @@ public class GamePanel extends JPanel implements Runnable {
 	public Config config = new Config(this);
 	// daodanie path finder 
 	public PathFinder pFinder = new PathFinder(this);
+	public EnvironmentManager eManager = new EnvironmentManager(this);
 	// dodanie  watku
 	public Thread gameThread;
+	
+	// ENTITY  AND OBJECT
+	
 	//dodanie gracza
 	public Player player =  new Player(this, keyH);
 	//dodanie objektu
@@ -131,6 +138,8 @@ public class GamePanel extends JPanel implements Runnable {
 		aSetter.setMonster();
 		// danie drzew do wyciecia
 		aSetter.setInetractiveTile();
+		eManager.setup();
+		
 		//wlaczenie muzyki o indeksie 0 
 		//playMusic(0);
 		//stopMusic();
@@ -277,6 +286,7 @@ public class GamePanel extends JPanel implements Runnable {
 	}
 	
 	public void drawToTempScreen() {
+		
 		// Debug
 				long drawStart = 0;
 				if(keyH.checkDrawTime == true) {
@@ -351,6 +361,9 @@ public class GamePanel extends JPanel implements Runnable {
 					
 					// EMPTY ENTITY LIST
 					entytiyList.clear();
+					
+					// ENVIROMENT
+					eManager.draw(g2);
 					
 					// doadnie UI
 					ui.draw(g2);

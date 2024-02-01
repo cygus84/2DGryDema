@@ -9,7 +9,7 @@ public class Start {
 	public static JFrame windows;
 	
 	public static void main(String[] args) {
-		//  LIGHTING EFFECT
+		//  LIGHTING EFFECT (darknes- light)
 		System.out.println("Moja 2D Gra-wersja-0-43 epizod 44");
 		
 		windows = new JFrame();
