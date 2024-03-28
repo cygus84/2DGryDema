@@ -16,12 +16,11 @@ import app.scenes.Settings;
 
 public class Game extends JFrame implements Runnable {
 
-	private GameScreen gameScreen;
+	public GameScreen gameScreen;
 	private Thread gameThread;
 	private final double FPS_SET = 120.0;
 	private final double UPS_SET = 60.0;
-	private MyMouseListener myMouseListener;
-	private KeyboardListener keyboardListener;
+
 	private Render render;
 	private Menu menu;
 	private Playing playing;
@@ -48,17 +47,7 @@ public class Game extends JFrame implements Runnable {
 		
 	}
 
-	public void initInputs() {
-		myMouseListener = new MyMouseListener();
-		keyboardListener = new KeyboardListener();
-		
-		addMouseListener(myMouseListener);
-		addMouseMotionListener(myMouseListener);
-		addKeyListener(keyboardListener);
-		
-		requestFocus();
-		
-	}
+
 
 	public void updateGame() {
 	}
@@ -96,7 +85,7 @@ public class Game extends JFrame implements Runnable {
 			}
 			// checking FPS and UPS
 			if (System.currentTimeMillis() - lastTimeCheck >= 1000) {
-				System.out.println("FPS: " + frames + " UPS: " + updates);
+				//System.out.println("FPS: " + frames + " UPS: " + updates);
 				frames = 0;
 				updates = 0;
 				lastTimeCheck = System.currentTimeMillis();

@@ -36,7 +36,6 @@ public class Menu extends GameScene implements SceneMethods{
 	}
 
 	private void importImg() {
-
 		InputStream is = getClass().getResourceAsStream("/spriteatlas.png");
 
 		try {
@@ -44,6 +43,7 @@ public class Menu extends GameScene implements SceneMethods{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
 	}
 	
 	private void loadSprites() {
