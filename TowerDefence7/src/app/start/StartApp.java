@@ -11,6 +11,7 @@ public class StartApp {
 		game.gameScreen.initInputs();
 		game.start();
 
+		// czas 9 53
 	}
 
 }

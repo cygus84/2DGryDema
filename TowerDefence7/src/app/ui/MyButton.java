@@ -23,6 +23,11 @@ public class MyButton {
 	}
 
 	public void initBounds() {
+		
+		//Mouse Over
+		
+		// Mouse pressed
+		
 		this.bounds = new Rectangle(x, y, width, height);
 	}
 	
