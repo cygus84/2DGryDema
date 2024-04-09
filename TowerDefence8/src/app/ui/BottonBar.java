@@ -13,7 +13,7 @@ import app.scenes.Playing;
 public class BottonBar {
 
 	private int x, y, width, height;
-	private MyButton bMenu;
+	private MyButton bMenu, bSave;
 	private Playing playing;
 	private ArrayList<MyButton> tileBottons;
 	private Tile selectTile;
@@ -31,6 +31,7 @@ public class BottonBar {
 	private void initButtons() {
 		tileBottons = new ArrayList<MyButton>();
 		bMenu = new MyButton("Menu", 2, 642, 100, 30);
+		bSave = new MyButton("Save", 2, 674, 100, 30);
 
 		int w = 50;
 		int h = 50;
@@ -48,7 +49,9 @@ public class BottonBar {
 	}
 
 	private void drawButtons(Graphics g) {
+		
 		bMenu.draw(g);
+		bSave.draw(g);
 		drawTileButtons(g);
 		drawSelectedTile(g);
 
@@ -104,8 +107,10 @@ public class BottonBar {
 	}
 
 	public void mouseClicked(int x, int y) {
-		if (bMenu.getBounds().contains(x, y)) {
+		if (bMenu.getBounds().contains(x, y)) 
 			SetGameState(MENU);
+		else if(bSave.getBounds().contains(x, y)) {
+				saveLevel();
 		} else {
 			for (MyButton b : tileBottons) {
 				if(b.getBounds().contains(x, y)) {
@@ -118,12 +123,19 @@ public class BottonBar {
 
 	}
 
+	private void saveLevel() {
+		playing.saveLevel();
+	}
+
 	public void mouseMoved(int x, int y) {
 		bMenu.setMouseOver(false);
+		bSave.setMouseOver(false);
 		for (MyButton b : tileBottons)
 			b.setMouseOver(false);
 		if (bMenu.getBounds().contains(x, y))
 			bMenu.setMouseOver(true);
+		else if(bSave.getBounds().contains(x, y))
+			bSave.setMouseOver(true);
 		else {
 			for (MyButton b : tileBottons) {
 				if (b.getBounds().contains(x, y)) {
@@ -138,6 +150,8 @@ public class BottonBar {
 	public void mousePressed(int x, int y) {
 		if (bMenu.getBounds().contains(x, y))
 			bMenu.setMousePressed(true);
+		else if(bSave.getBounds().contains(x, y))
+			bSave.setMousePressed(true);
 		else {
 			for (MyButton b : tileBottons) {
 				if(b.getBounds().contains(x, y)) {
@@ -150,6 +164,7 @@ public class BottonBar {
 
 	public void mouseReleased(int x, int y) {
 		bMenu.resetBooleans();
+		bSave.resetBooleans();
 		for(MyButton b : tileBottons) {
 			b.resetBooleans();
 		}
