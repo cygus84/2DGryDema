@@ -4,12 +4,12 @@ public class Card {
 
 	private Suit suit;
 	private Rank rank;
-	private  boolean isFaceUp;
+	public boolean isFaceUp;
 	
 	public Card(Rank rank, Suit suit) {
 		this.rank = rank;
 		this.suit = suit;
-		isFaceUp = true;
+		isFaceUp = false;
 	}
 	
 	public String getSuit() {
@@ -18,6 +18,11 @@ public class Card {
 	
 	public int getRank() {
 		return rank.getRank();
+	}
+	
+	public String printRank() {
+		// get rank as a String (primarly for aces)
+		return rank.printRank();
 	}
 	
 	public void flipCard() {
