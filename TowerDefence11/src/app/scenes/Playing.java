@@ -9,7 +9,6 @@ import app.ui.ActionBar;
 public class Playing extends GameScene implements SceneMethods {
 
 	private int[][] lvl;
-	
 	private ActionBar bottonBar;
 	private int mouseX, mouseY;
 

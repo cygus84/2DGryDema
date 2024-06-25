@@ -32,7 +32,7 @@ public class Toolbar  extends Bar{
 
 	private void initButtons() {
 		//tileBottons = new ArrayList<MyButton>();
-		map = new HashMap<MyButton, ArrayList<Tile>>();
+		//map = new HashMap<MyButton, ArrayList<Tile>>();
 		bMenu = new MyButton("Menu", 2, 642, 100, 30);
 		bSave = new MyButton("Save", 2, 674, 100, 30);
 		 

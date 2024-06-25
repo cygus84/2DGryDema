@@ -16,9 +16,8 @@ import app.render.Render;
 
 public class GameScreen extends JPanel {
 
-	private Dimension size;
-	
 	private Game game;
+	private Dimension size;
 	
 	private MyMouseListener myMouseListener;
 	private KeyboardListener keyboardListener;
@@ -34,7 +33,7 @@ public class GameScreen extends JPanel {
 	
 	public void initInputs() {
 		myMouseListener = new MyMouseListener(game);
-		keyboardListener = new KeyboardListener();
+		keyboardListener = new KeyboardListener(game);
 		
 		addMouseListener(myMouseListener);
 		addMouseMotionListener(myMouseListener);

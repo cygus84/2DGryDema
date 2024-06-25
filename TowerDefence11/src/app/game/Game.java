@@ -47,7 +47,7 @@ public class Game extends JFrame implements Runnable {
 		int[] arr = new int[400];
 		for(int i = 0; i < arr.length; i++)
 			arr[i] = 0;
-		LoadSave.CreatLevel("new_level", arr);
+		LoadSave.CreateLevel("new_level", arr);
 			
 	}
 	
@@ -89,8 +89,8 @@ public class Game extends JFrame implements Runnable {
 			// Render
 			if (now - lastFrame >= timePerFrame) {
 				repaint();
-				frames++;
 				lastFrame = now;
+				frames++;	
 			}
 			// Update
 			if (now - lastUpdate >= timePerUpdate) {

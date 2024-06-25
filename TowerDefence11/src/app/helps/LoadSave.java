@@ -12,9 +12,7 @@ import java.util.Scanner;
 import javax.imageio.ImageIO;
 
 public class LoadSave {
-
 	public static BufferedImage getSpriteAtlas() {
-
 		BufferedImage img = null;
 		InputStream is = LoadSave.class.getClassLoader().getResourceAsStream("spriteatlas.png");
 
@@ -23,13 +21,10 @@ public class LoadSave {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 		return img;
 	}
 
-	// txt file
 	public static void CreateFile() {
-
 		File txtFile = new File("res/testTextFile.txt");
 
 		try {
@@ -37,28 +32,26 @@ public class LoadSave {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
 	}
 
-	public static void CreatLevel(String name, int[] idArr) {
-
-		File newLvl = new File("res/" + name + ".txt");
-
-		if (newLvl.exists()) {
-			System.out.println("File " + name + "already exists!");
+	public static void CreateLevel(String name, int[] idArr) {
+		File newLevel = new File("res/" + name + ".txt");
+		if (newLevel.exists()) {
+			System.out.println("File: " + name + " already exists!");
 			return;
 		} else {
 			try {
-				newLvl.createNewFile();
+				newLevel.createNewFile();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-
-			WriteToFile(newLvl, idArr);
+			WriteToFile(newLevel, idArr);
 		}
+
 	}
 
 	private static void WriteToFile(File f, int[] idArr) {
-
 		try {
 			PrintWriter pw = new PrintWriter(f);
 			for (Integer i : idArr)
@@ -68,22 +61,23 @@ public class LoadSave {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+
 	}
-	
-	public static void SaveLevel(String name, int[][]idArr) {
+
+	public static void SaveLevel(String name, int[][] idArr) {
 		File levelFile = new File("res/" + name + ".txt");
-		
-		if(levelFile.exists()) {
-			WriteToFile(levelFile, Utilz.TwoDtoDinArr(idArr));
+
+		if (levelFile.exists()) {
+			WriteToFile(levelFile, Utilz.TwoDto1DintArr(idArr));
 		} else {
-			System.out.println("File " + name + "does not exist!");
+			System.out.println("File: " + name + " does not exists! ");
 			return;
 		}
-		
 	}
 
 	private static ArrayList<Integer> ReadFromFile(File file) {
-		ArrayList<Integer> list = new ArrayList<Integer>();
+		ArrayList<Integer> list = new ArrayList<>();
+
 		try {
 			Scanner sc = new Scanner(file);
 
@@ -92,6 +86,7 @@ public class LoadSave {
 			}
 
 			sc.close();
+
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -104,18 +99,13 @@ public class LoadSave {
 
 		if (lvlFile.exists()) {
 			ArrayList<Integer> list = ReadFromFile(lvlFile);
-			return Utilz.ArraListTo2Dint(list, 20, 20);
+			return Utilz.ArrayListTo2Dint(list, 20, 20);
+
 		} else {
-			System.out.println("File " + name + "does not exist!");
+			System.out.println("File: " + name + " does not exists! ");
 			return null;
 		}
 
 	}
-
-	// save 2d array to lvl
-
-	// load int array from file
-
-	// creat a new lvl with default values
 
 }

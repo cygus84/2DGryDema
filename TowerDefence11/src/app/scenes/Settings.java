@@ -25,7 +25,6 @@ public class Settings extends GameScene implements SceneMethods {
 		g.setColor(Color.BLUE);
 		g.fillRect(0, 0, 640, 640);
 		
-		g.setColor(Color.GRAY);
 		drawButtons(g);		
 	}
 	

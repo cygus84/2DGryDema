@@ -13,16 +13,15 @@ public class TileManager {
 	TL_WATER_CORNER, TR_WATER_CORNER, BR_WATER_CORNER, T_WATER, R_WATER, B_WATER, L_WATER, TL_ISLE, TR_ISLE,
 	BR_ISLE, BL_ISLE;
 	public BufferedImage atlas;
-	public ArrayList<Tile> tiles ,roadsS, roadsC,corners, beaches,islands  ;
+	public ArrayList<Tile> tiles = new ArrayList<>();
+	public ArrayList<Tile> roadsS = new ArrayList<>();
+	public ArrayList<Tile> roadsC = new ArrayList<>();
+	public ArrayList<Tile> corners = new ArrayList<>();
+	public ArrayList<Tile> beaches = new ArrayList<>();
+	public ArrayList<Tile> islands = new ArrayList<>();
+	
 	
 	public TileManager() {
-		
-		tiles = new ArrayList<Tile>();	
-		roadsS = new ArrayList<Tile>();	
-		roadsC = new ArrayList<Tile>();	
-		corners = new ArrayList<Tile>();	
-		beaches = new ArrayList<Tile>();	
-		islands = new ArrayList<Tile>();	
 		
 		loadAtlas();
 		createTiles();
@@ -85,8 +84,8 @@ public class TileManager {
 		return tiles.get(id).getSprite();
 	}
 	
-	public BufferedImage getSprite(int x,int y) {
-		return atlas.getSubimage(x * 32,y * 32, 32, 32);
+	private BufferedImage getSprite(int xCord, int yCord) {
+		return atlas.getSubimage(xCord * 32, yCord * 32, 32, 32);
 	}
 
 	public ArrayList<Tile> getRoadsS() {

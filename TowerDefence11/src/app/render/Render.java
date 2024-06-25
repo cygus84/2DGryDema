@@ -32,7 +32,5 @@ public class Render {
 			break;
 		
 		}
-	}
-	
-	
+	}		
 }
