@@ -16,7 +16,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 @SuppressWarnings("serial")
-public class OknoGraWedkowanie extends JFrame {
+public class OknoGraWedkowanie extends JFrame implements Runnable{
 
 	private static final String[][] RYBY = { { "Karp", "Leszcz", "Pstrąg" }, { "Szczupak", "Sandacz", "Sum" },
 			{ "Łosoś", "Troć", "Węgorz" } };
@@ -150,6 +150,12 @@ public class OknoGraWedkowanie extends JFrame {
 		sprawdzSiatkeButton.setEnabled(false);
 		zakonczenieGryButton.setEnabled(false);
 		timer.stop();
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	
