@@ -1,6 +1,5 @@
 package app.sterowanie;
 
-import java.awt.Event;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -42,8 +41,8 @@ public class KeyHandler implements KeyListener {
 		int code = e.getKeyCode();
 
 		if (code == KeyEvent.VK_W) {
-
 			upPressed = false;
+			System.out.println("zwolniiono przycisk");
 		}
 
 		if (code == KeyEvent.VK_S) {

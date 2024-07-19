@@ -26,9 +26,9 @@ public class GamePanel extends JPanel implements Runnable{
 	int FPS = 60;
 	
 	
-	private KeyHandler keyH = new KeyHandler();
+	public KeyHandler keyH = new KeyHandler();
 	private Thread gameThread;
-	private Player player =  new Player(this, keyH);
+	public Player player =  new Player(this, keyH);
 	
 	// Ste palyer default position
 	private int  playerX = 100;

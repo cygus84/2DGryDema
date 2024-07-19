@@ -1,6 +1,5 @@
 package app.model;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -51,7 +50,8 @@ public class Player extends Entity {
 
 	public void update() {
 
-		if(keyH.upPressed = true || keyH.downPressed == true || keyH.leftPressed == true ||keyH.rightPressed == true) {
+		if(keyH.upPressed == true || keyH.downPressed == true || keyH.leftPressed == true
+				||keyH.rightPressed == true) {
 			
 			if (keyH.upPressed == true) {
 				direction = "up";
