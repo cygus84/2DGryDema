@@ -8,6 +8,7 @@ public class StartApp {
 
 	public static void main(String[] args) {
 		System.out.println("Gwiezdne Wrota-007");
+		// dodanie obejtow do mapy
 		
 		JFrame window = new JFrame();
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -20,8 +21,8 @@ public class StartApp {
 		window.pack();
 		
 		window.setLocationRelativeTo(null);
-		
 		window.setResizable(false);
+		gamePanel.setupGame();
 		gamePanel.startGameThread();
 		window.setVisible(true);
 
