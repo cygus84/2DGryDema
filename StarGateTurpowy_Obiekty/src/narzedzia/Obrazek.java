@@ -15,7 +15,7 @@ public class Obrazek {
 	}
 	
 	public static ImageIcon strzalki(int ktory) {
-		return obrazkiStrzalek.get(ktory - 1); // pomniejszony o 1 Wazne
+		return obrazkiStrzalek.get(ktory);
 	}
 	
 	private static ImageIcon ladowanieObrazka(String nazwaObrazka) {

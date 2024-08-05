@@ -19,7 +19,6 @@ public class OknoMenu extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
-
 	public OknoMenu() {
 		setResizable(false);
 		setUndecorated(true);
@@ -39,6 +38,11 @@ public class OknoMenu extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JButton bNowaGra = new JButton("Nowa gra");
+		bNowaGra.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				nowaGra();
+			}
+		});
 		bNowaGra.setFont(new Font("Tahoma", Font.BOLD, 16));
 		contentPane.add(bNowaGra);
 		
@@ -56,6 +60,11 @@ public class OknoMenu extends JFrame {
 		contentPane.add(bWyjdz);
 		setLocationRelativeTo(null);
 		setVisible(true);
+	}
+	
+	private void nowaGra() {
+		new OknoGry();
+		dispose();
 	}
 	
 	private void wyjscieZGry() {

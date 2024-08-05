@@ -1,5 +1,8 @@
 package watki;
 
+import java.awt.Point;
+
+import dane.Globalne;
 import narzedzia.Obrazek;
 
 public class WatekLadowanieDanychAplikacji extends WatekWzorzec {
@@ -14,9 +17,13 @@ public class WatekLadowanieDanychAplikacji extends WatekWzorzec {
 	@Override
 	protected void akcja() {
 		isLadowanieDanych = true;
-		opozniacz();// do testow tylko 
+		//opozniacz();// do testow tylko 
 		komunikat = "Ladowanie obrazkow";
 		Obrazek.ladowanieObrazkow();
+		komunikat = "Ladowanie zmiennych globalnych";
+		int x = (Globalne.rozmarEkranu.width - Globalne.rozmiarKafelka) / 2;
+		int y = (Globalne.rozmarEkranu.height - Globalne.rozmiarKafelka) / 2;
+		Globalne.punktRysowania = new Point(x, y);
 		isLadowanieDanych = false;
 	}
 
