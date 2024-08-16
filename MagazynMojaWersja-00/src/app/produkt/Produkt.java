@@ -2,15 +2,14 @@ package app.produkt;
 
 import java.io.Serializable;
 
-public class Produkt implements Serializable{
-	private static final long serialVersionUID = 1L;
+public class Produkt {
     private String name;
     private int amount;
     private String locations;
     private String desctiption;
     
 
-    public Produkt(String name, int amount, String locations, String odesctiptionpis) {
+    public Produkt(String name, int amount, String locations, String desctiption) {
         this.name = name;
         this.amount = amount;
         this.locations = locations;
