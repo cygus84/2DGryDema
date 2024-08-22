@@ -27,7 +27,7 @@ public class RendererWeza extends JPanel implements ListCellRenderer<Waz> {
 		eDlugosc = new JLabel("XXX");
 		eDlugosc.setHorizontalAlignment(SwingConstants.RIGHT);
 		eDlugosc.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		add(eDlugosc, BorderLayout.CENTER);
+		add(eDlugosc, BorderLayout.EAST);
 		
 		eNazwa = new JLabel("Nazwa");
 		eNazwa.setFont(new Font("Tahoma", Font.BOLD, 16));
@@ -43,6 +43,8 @@ public class RendererWeza extends JPanel implements ListCellRenderer<Waz> {
 		} else {
 			setBackground(Color.WHITE);
 		}
+		eDlugosc.setText(String.valueOf(waz.getDlugosc()));
+		eNazwa.setText(waz.getNazwa());
 		return this;
 	}
 

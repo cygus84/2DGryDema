@@ -59,4 +59,9 @@ public class Wykaz {
 				.forEach((w) -> w = nowyWaz);
 				podglad.odswiez();
 	}
+	
+	public static void usunWeza(int podgladWezyId) {
+		Waz wazDoUsuniecia =  podglad.remove(podgladWezyId);
+		glowny.remove(wazDoUsuniecia);
+	}
 }

@@ -49,8 +49,5 @@ public class ModelListWezy extends DefaultListModel<Waz> {
 		return lista.getSelectedIndex();
 	}
 	
-	private void usun(int indeks) {
-		lista.remove(indeks);
-		odswiez();
-	}
+	
 }
