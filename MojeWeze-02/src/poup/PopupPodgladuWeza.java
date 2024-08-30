@@ -59,14 +59,6 @@ public class PopupPodgladuWeza extends JDialog {
 			panel.setBorder(null);
 			contentPanel.add(panel, BorderLayout.SOUTH);
 			{
-				JButton bZamknij = new JButton("Zamknij");
-				bZamknij.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						zamknij();
-					}
-				});
-				bZamknij.setFont(new Font("Tahoma", Font.PLAIN, 16));
-				panel.add(bZamknij);
 				{
 					JButton bZapisz = new JButton("Zapisz");
 					bZapisz.addActionListener(new ActionListener() {
@@ -77,7 +69,26 @@ public class PopupPodgladuWeza extends JDialog {
 					bZapisz.setFont(new Font("Tahoma", Font.PLAIN, 16));
 					panel.add(bZapisz);
 				}	
+				
 			}
+			{
+				JButton bUsun = new JButton("Usun");
+				bUsun.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						usunWeza();
+					}
+				});
+				bUsun.setFont(new Font("Tahoma", Font.PLAIN, 16));
+				panel.add(bUsun);
+			}
+			JButton bZamknij = new JButton("Zamknij");
+			bZamknij.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					zamknij();
+				}
+			});
+			bZamknij.setFont(new Font("Tahoma", Font.PLAIN, 16));
+			panel.add(bZamknij);
 		}
 		{
 			JPanel panelFormularza = new JPanel();
@@ -132,5 +143,10 @@ public class PopupPodgladuWeza extends JDialog {
 
 		private void zamknij() {
 			dispose();
+		}
+		
+		private void usunWeza() {
+			Wykaz.usunWeza(podgladWezaId);
+			zamknij();
 		}
 }
