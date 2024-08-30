@@ -8,6 +8,5 @@ public class StartApp {
 		System.out.println("Moje Weze-002");
 		// dodanie usuniecia weza i bezpieczniki do mouse adaptera 
 		new OknoGlowne();
-
 	}
 }

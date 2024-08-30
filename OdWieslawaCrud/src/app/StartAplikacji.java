@@ -9,7 +9,7 @@ public class StartAplikacji {
 		//wtyczne do wersji:
 		// 02 - wykonac aplikacje z jak namniej podpowiedzi
 		// 03 - koty 3 parametry: zdjecie , nazwa , ilosc
-		
+		// 04 - stworzyc aplikacje zwierzyniec ktora bedzie oblsugiwala 2x rodzaje zwierzat
 		new OknoGlowne();
 	}
 
