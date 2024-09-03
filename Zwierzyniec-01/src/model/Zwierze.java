@@ -3,19 +3,21 @@ package model;
 public class Zwierze {
 	
 	private String nazwa;
+	private int rodzaj;
 	private int wiek;
 	
 	public Zwierze() {
-		ustaw("brak", wiek);
+		ustaw("brak", wiek, rodzaj);
 	}
 
-	public Zwierze(String nazwa, int wiek) {
-		ustaw(nazwa, wiek);
+	public Zwierze(String nazwa, int wiek, int rodzaj) {
+		ustaw(nazwa, wiek, rodzaj);
 	}
 	
-	private void ustaw(String nowaNazwa, int nowyWiek) {
+	private void ustaw(String nowaNazwa, int nowyWiek, int nowyRodzaj) {
 		this.nazwa = nowaNazwa;
 		this.wiek = nowyWiek;
+		this.rodzaj = nowyRodzaj;
 	}
 
 	public String getNazwa() {
@@ -24,5 +26,9 @@ public class Zwierze {
 
 	public int getWiek() {
 		return wiek;
+	}
+	
+	public int getRodzaj() {
+		return rodzaj;
 	}
 }

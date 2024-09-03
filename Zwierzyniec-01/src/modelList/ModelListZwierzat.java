@@ -31,8 +31,8 @@ public class ModelListZwierzat extends DefaultListModel<Zwierze> {
 		oswiez();
 	}
 
-	public void addZwierze(String nazwa, int wiek) {
-		dodajZwierze(new Zwierze(nazwa, wiek));
+	public void addZwierze(String nazwa, int wiek, int rodzaj) {
+		dodajZwierze(new Zwierze(nazwa, wiek, rodzaj));
 	}
 	
 	public void addZwierze(Zwierze zwierze) {
