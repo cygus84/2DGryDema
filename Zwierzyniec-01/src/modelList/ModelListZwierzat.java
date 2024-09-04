@@ -4,6 +4,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JList;
 
 import model.Zwierze;
+import renderery.RendererZwierzecia;
 
 public class ModelListZwierzat extends DefaultListModel<Zwierze> {
 
@@ -22,13 +23,13 @@ public class ModelListZwierzat extends DefaultListModel<Zwierze> {
 	private void ustaw(JList<Zwierze> lista) {
 		lista.setModel(this);
 		// renderer
-		lista.setCellRenderer();
+		lista.setCellRenderer(new RendererZwierzecia());
 		this.lista = lista;
 	}
 	
 	public void dodajZwierze(Zwierze ziwerz) {
 		add(0, ziwerz);
-		oswiez();
+		odswierz();
 	}
 
 	public void addZwierze(String nazwa, int wiek, int rodzaj) {
@@ -39,11 +40,12 @@ public class ModelListZwierzat extends DefaultListModel<Zwierze> {
 		dodajZwierze(zwierze);
 	}
 	
-	private void oswiez() {
+	public void odswierz() {
 		lista.updateUI();
 	}
 	
 	public int getZanaczoneZwierze() {
 		return lista.getSelectedIndex();
 	}
+
 }
