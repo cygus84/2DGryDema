@@ -5,8 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Timer;
-
+import javax.swing.Timer;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -16,7 +15,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 @SuppressWarnings("serial")
-public class OknoGraWedkowanie extends JFrame implements Runnable{
+public class OknoGraWedkowanie extends JFrame {
 
 	private static final String[][] RYBY = { { "Karp", "Leszcz", "Pstrąg" }, { "Szczupak", "Sandacz", "Sum" },
 			{ "Łosoś", "Troć", "Węgorz" } };
@@ -37,7 +36,7 @@ public class OknoGraWedkowanie extends JFrame implements Runnable{
 	private JButton sprawdzSiatkeButton;
 	private JButton zakonczenieGryButton;
 	private JLabel punktyLabel;
-	private Timer timer;
+	protected Timer timer;
 	private boolean[] rybyDostepne = { false, false, false };
 
 	public OknoGraWedkowanie() {
@@ -51,22 +50,27 @@ public class OknoGraWedkowanie extends JFrame implements Runnable{
 		startFishTimer();
 	}
 
-	private void startFishTimer() {
-		 timer = new Timer(3000, new ActionListener() {
-	            @Override
-	            public void actionPerformed(ActionEvent e) {
-	                for (int i = 0; i < rybyDostepne.length; i++) {
-	                    rybyDostepne[i] = random.nextBoolean();
-	                }
-	                outputArea.append("Aktualizacja akwenu:\n");
-	                for (int i = 0; i < AKWENY.length; i++) {
-	                    outputArea.append(AKWENY[i] + ": " + (rybyDostepne[i] ? "Ryby dostępne\n" : "Brak ryb\n"));
-	                }
-	            }
-	        });
-	        timer.start();
-	}
+	  // Timer, który co 5 sekund aktualizuje dostępność ryb w akwenach
+    private void startFishTimer() {
+    	   timer = new Timer(5000, new ActionListener() {
+               @Override
+               public void actionPerformed(ActionEvent e) {
+                   // Losowo ustal, czy w akwenie są ryby
+                   for (int i = 0; i < rybyDostepne.length; i++) {
+                       rybyDostepne[i] = random.nextBoolean();
+                   }
 
+                   // Wyświetl komunikat o aktualnym stanie ryb w akwenach
+                   outputArea.append("Aktualizacja akwenu:\n");
+                   for (int i = 0; i < AKWENY.length; i++) {
+                       outputArea.append(AKWENY[i] + ": " + (rybyDostepne[i] ? "Ryby dostępne!\n" : "Brak ryb.\n"));
+                   }
+                   outputArea.append("\n");
+               }
+           });
+           timer.start(); // Uruchomienie timera
+    }
+    
 	private void initComponents() {
 		setLayout(new BorderLayout());
 
@@ -152,12 +156,7 @@ public class OknoGraWedkowanie extends JFrame implements Runnable{
 		timer.stop();
 	}
 
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 	
 }
 
