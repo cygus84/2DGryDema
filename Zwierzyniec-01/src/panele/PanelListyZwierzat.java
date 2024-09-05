@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 import dane.Wykaz;
 import model.Zwierze;
 import modelList.ModelListZwierzat;
+import java.awt.event.MouseEvent;
 
 @SuppressWarnings("serial")
 public class PanelListyZwierzat extends JScrollPane {

@@ -10,14 +10,14 @@ public class Zwierze {
 		ustaw("brak", wiek, rodzaj);
 	}
 
-	public Zwierze(String nazwa, int wiek, int rodzaj) {
-		ustaw(nazwa, wiek, rodzaj);
+	public Zwierze(String nazwa, int rodzaj, int wiek) {
+		ustaw(nazwa, rodzaj, wiek);
 	}
 	
-	private void ustaw(String nowaNazwa, int nowyWiek, int nowyRodzaj) {
-		this.nazwa = nowaNazwa;
-		this.wiek = nowyWiek;
-		this.rodzaj = nowyRodzaj;
+	private void ustaw(String nazwa, int rodzaj, int wiek) {
+		this.nazwa = nazwa;
+		this.rodzaj = rodzaj;
+		this.wiek = wiek;
 	}
 
 	public String getNazwa() {

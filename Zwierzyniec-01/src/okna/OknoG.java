@@ -22,6 +22,7 @@ import dane.Wykaz;
 import model.Zwierze;
 import panele.PanelListyZwierzat;
 import popupy.PoupPodgladuZwierzecia;
+import javax.swing.DefaultComboBoxModel;
 
 public class OknoG extends  JFrame {
 
@@ -29,9 +30,8 @@ public class OknoG extends  JFrame {
 	private JPanel contentPane;
 	private JTextField tfSzukanaNazwa;
 	private JTextField tfNazwa;
-	private JTextField tfGrupa;
 	private JTextField tfWiek;
-	private JComboBox<Integer> rodzaj;
+	private JComboBox<String> cbGryupa;
 
 	public OknoG() {
 		setTitle("Shcronisko-01");
@@ -83,10 +83,9 @@ public class OknoG extends  JFrame {
 		lblIlo_1.setBorder(new EmptyBorder(0, 5, 0, 5));
 		panel.add(lblIlo_1);
 		
-		tfGrupa = new JTextField();
-		tfGrupa.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		tfGrupa.setColumns(5);
-		panel.add(tfGrupa);
+		cbGryupa = new JComboBox<String>();
+		cbGryupa.setModel(new DefaultComboBoxModel<String>(Wykaz.rodzaje));
+		panel.add(cbGryupa);
 		
 		JLabel lblIlo_2 = new JLabel("Wiek");
 		lblIlo_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -124,15 +123,13 @@ public class OknoG extends  JFrame {
 	
 	private void dodajNoweZwierze() {
 		String nazwa = tfNazwa.getText();
-		String grupa = tfGrupa.getText();
 		String wiek = tfWiek.getText();
-		if (nazwa.length() >= 1 && grupa.matches("^[0-9-]{1,}$") && wiek.matches("^[0-9-]{1,}$")) {
-			int nGrupa = Integer.valueOf(grupa);
+		if (nazwa.length() >= 1 && wiek.matches("^[0-9-]{1,}$")) {
+			int nGrupa = cbGryupa.getSelectedIndex();
 			int nWiek =  Integer.valueOf(wiek);
 			Wykaz.glowny.add(0, new Zwierze(nazwa, nGrupa, nWiek));
 			wyczyscWyszukiwanie();
 			tfNazwa.setText("");
-			tfGrupa.setText("");
 			tfWiek.setText("");
 		}
 		
@@ -140,8 +137,10 @@ public class OknoG extends  JFrame {
 	
 	protected void wyszukajPoNazwie() {
 		String fragmentNazwy = tfSzukanaNazwa.getText();
+		System.out.println("szukany fragment = " + fragmentNazwy);
 		if (fragmentNazwy.length() >= 1) {
 			Wykaz.wyszukajPoFragmecieNazwy(fragmentNazwy);
+			System.out.println("Zakonczyl wyszukiwanie");
 			tfSzukanaNazwa.setText("");
 		}
 	}
@@ -150,8 +149,11 @@ public class OknoG extends  JFrame {
 		return new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				System.out.println("Kliknieto w liste");
 				if(Wykaz.podglad.getZanaczoneZwierze() >= 0) {
+					System.out.println("index =" + Wykaz.podglad.getZanaczoneZwierze());
 					new PoupPodgladuZwierzecia(Wykaz.podglad.getZanaczoneZwierze());
+					//new PoupPodgladuZwierzecia();
 				}	
 			}
 		};

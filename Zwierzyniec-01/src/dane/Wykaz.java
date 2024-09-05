@@ -9,6 +9,9 @@ public class Wykaz {
 	
 	public static ArrayList<Zwierze> glowny = new ArrayList<Zwierze>();
 	public static ModelListZwierzat podglad = new ModelListZwierzat();
+	public static String[] rodzaje = { 
+			"Kot", "Pies"
+	};
 	
 	
 	public static void wyczyscPodglad() {
@@ -21,15 +24,17 @@ public class Wykaz {
 		if(ilosc > 1) {
 			ilosc-= 1;
 			for (int z = ilosc; z >= 0; z--) {
-				if (!podglad.get(z).getNazwa().contains(frgmentNazwy));
-				podglad.remove(z);
+				if (!podglad.get(z).getNazwa().contains(frgmentNazwy)) {
+					podglad.remove(z);
+				}			
 			}
+			podglad.odswierz();
 		}
 	}
 	
 	public static void aktulizacjaZwierzat(int podgladZwierzeciaId, String nowaNazwa, int nowyRodzaj, int nowyWiek) {
 		Zwierze stareZwierze = podglad.get(podgladZwierzeciaId);
-		Zwierze noweZwierze = new Zwierze(nowaNazwa, nowyWiek, nowyRodzaj);
+		Zwierze noweZwierze = new Zwierze(nowaNazwa, nowyRodzaj, nowyWiek);
 		podglad.set(podgladZwierzeciaId, noweZwierze);
 		glowny.stream()
 		.filter((z) -> (z.getNazwa().equals(stareZwierze.getNazwa()) && z.getWiek() == stareZwierze.getWiek() && z.getRodzaj() == stareZwierze.getRodzaj()))

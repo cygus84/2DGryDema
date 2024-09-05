@@ -11,6 +11,9 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 
 import javax.swing.border.EmptyBorder;
+
+import dane.Wykaz;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
@@ -47,13 +50,13 @@ public class RendererZwierzecia extends JPanel implements ListCellRenderer<Zwier
 	public Component getListCellRendererComponent(JList<? extends Zwierze> list, Zwierze zwierze, int index,
 			boolean isSelected, boolean cellHasFocus) {
 		if (isSelected) {
-			setBackground(Color.BLUE);
+			setBackground(Color.YELLOW);
 		} else {
-			setBackground(Color.DARK_GRAY);
+			setBackground(Color.GRAY);
 		}
 		eNazwa.setText(zwierze.getNazwa());
 		eWiek.setText(String.valueOf(zwierze.getWiek()));
-		eRodzaj.setText(String.valueOf(zwierze.getRodzaj()));
+		eRodzaj.setText(Wykaz.rodzaje[zwierze.getRodzaj()]);
 		return this;
 	}
 
