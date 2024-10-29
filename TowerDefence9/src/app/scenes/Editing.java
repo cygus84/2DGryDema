@@ -103,9 +103,6 @@ public class Editing extends GameScene implements SceneMethods {
 
 	@Override
 	public void mousePressed(int x, int y) {
-		if (y >= 640) {
-			toolbar.mousePressed(x, y);
-		}
 
 	}
 
