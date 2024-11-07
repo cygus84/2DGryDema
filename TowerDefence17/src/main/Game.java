@@ -29,7 +29,7 @@ public class Game extends JFrame implements Runnable {
 	private TileManager tileManager;
 
 	public Game() {
-		System.out.println("Epizod 15 i 16");
+		System.out.println("Epizod 17");
 		initClasses();
 		createDefaultLevel();
 
