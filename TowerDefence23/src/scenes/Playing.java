@@ -64,11 +64,11 @@ public class Playing extends GameScene implements SceneMethods {
 		drawSelectedTower(g);
 		drawHighlight(g);
 	}
-	
+
 	private void drawHighlight(Graphics g) {
 		g.setColor(Color.WHITE);
 		g.drawRect(mouseX, mouseY, 32, 32);
-		
+
 	}
 
 	private void drawSelectedTower(Graphics g) {
@@ -135,7 +135,7 @@ public class Playing extends GameScene implements SceneMethods {
 		int tileType = game.getTileManager().getTile(id).getTileType();
 		return tileType == GRASS_TILE;
 	}
-	
+
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
 			selectedTower = null;
@@ -172,5 +172,10 @@ public class Playing extends GameScene implements SceneMethods {
 	public TowerManager getTowerManager() {
 		return towerManager;
 	}
+
+	public EnemyManager getEnemyManger() {
+		return enemyManager;
+	}
+
 
 }
