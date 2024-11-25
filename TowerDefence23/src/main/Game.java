@@ -29,8 +29,8 @@ public class Game extends JFrame implements Runnable {
 	private TileManager tileManager;
 
 	public Game() {
-		System.out.println("Epizod 23");
 		
+		System.out.println("Ezpozd 23-strzala");
 		initClasses();
 		createDefaultLevel();
 
