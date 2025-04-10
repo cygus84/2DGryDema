@@ -161,5 +161,4 @@ public class Magazyn {
             System.out.println("Błąd podczas wczytywania danych: " + e.getMessage());
         }
     }
-
 }

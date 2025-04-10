@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.sql.*;
 
 public class MagazynGUI extends JFrame {
+	
     private DefaultTableModel model;
     private JTable table;
     private JTextField nazwaField, iloscField, kategoriaField, szukajField;
