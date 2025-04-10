@@ -31,6 +31,7 @@ public class MagazynGUI extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800, 450);
         setLayout(new BorderLayout());
+        setLocationRelativeTo(null);
 
         model = new DefaultTableModel(new String[]{"Nazwa", "Ilość", "Kategoria"}, 0);
         table = new JTable(model);

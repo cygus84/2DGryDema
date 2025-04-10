@@ -37,6 +37,7 @@ public class LoginWindow extends JFrame {
 		loginButton.addActionListener(e -> login());
 
 		setVisible(true);
+		setLocationRelativeTo(null);
 	}
 
 	private void login() {
