@@ -2,6 +2,7 @@ package app;
 // WYMAGANE: sqlite-jdbc (np. sqlite-jdbc-3.36.0.3.jar)
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 import com.itextpdf.text.Document;
@@ -207,6 +208,9 @@ public class MagazynGUI extends JFrame {
     private void zapiszRaportDoPliku() {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Zapisz raport do pliku");
+        fileChooser.removeChoosableFileFilter(fileChooser.getChoosableFileFilters()[0]); // pobieram 1 domyslny i usuwamy
+        fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Documents", "txt")); // dodajem bezpicznik -
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);// tylko pliki nie mozna wybrac folderu
 
         if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
             try (FileWriter writer = new FileWriter(fileChooser.getSelectedFile() + ".txt")) {
@@ -235,7 +239,9 @@ public class MagazynGUI extends JFrame {
     private void zapiszRaportDoPdf() {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Zapisz raport jako PDF");
-
+        fileChooser.removeChoosableFileFilter(fileChooser.getChoosableFileFilters()[0]); // pobieram 1 domyslny i usuwamy
+        fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("PDF Documents", "pdf")); // dodajem bezpicznik - pdf
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);// tylko pliki nie mozna wybrac folderu
         if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
             Document document = new Document();
             try {
